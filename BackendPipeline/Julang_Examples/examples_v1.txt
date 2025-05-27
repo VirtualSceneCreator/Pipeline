@@ -1,0 +1,925 @@
+You will be given a JSON schema, see Json schema, which should in the end contain all the game objects in a 3D
+Unity scene that may represent a particular object , widget , or even an entire 3D world . Your task is to fill
+this JSON file.
+
+# Guidelines to follow
+- You should pay attention to the input and create the json with everything they asked for.
+- Each step of the plan should be properly created so that the 3D can be executed successfully. To get a sense of
+what a good plan looks like , see Examples . Also see Examples of Good Json Output files.
+- Only use the valid json schema, see Examples. If there are any calculations or different json objects, convert them
+into the valid schema.
+- Only return the filled json, nothing else!
+
+# Json schema
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/my-3d-meta-language.schema.json",
+  "type": "object",
+  "title": "Root schema for 3D Scene",
+  "description": "3D-Szenenbeschreibung mit Unterscheidung zwischen Top-Level- und Child-Objekten sowie Objektgruppen mit spezifischen Farben",
+  "additionalProperties": false,
+  "properties": {
+    "scene": {
+      "type": "object",
+      "description": "Haupteintrag für die Szene",
+      "additionalProperties": false,
+      "required": [
+        "sceneName",
+        "environment",
+        "objects"
+      ],
+      "properties": {
+        "sceneName": {
+          "type": "string",
+          "description": "Name oder Bezeichner der Szene"
+        },
+        "environment": {
+          "$ref": "#/definitions/environment",
+          "description": "Umgebungs-Informationen (z.B. indoor/outdoor, Dimensionen)"
+        },
+        "objectGroups": {
+          "type": "object",
+          "description": "Definition der Objektgruppen mit spezifischen Farbeinstellungen",
+          "patternProperties": {
+            "^[a-zA-Z0-9_\\-]+$": {
+              "type": "object",
+              "description": "Definition einer Objektgruppe",
+              "properties": {
+                "color": {
+                  "type": "string",
+                  "description": "Farbe der Objektgruppe (Hex-Code, z.B. '#FF0000')"
+                }
+              },
+              "required": ["color"],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "objects": {
+          "type": "array",
+          "description": "Liste aller Top-Level-Objekte in der Szene",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/topLevelSceneObject"
+          }
+        }
+      }
+    }
+  },
+  "required": ["scene"],
+  "definitions": {
+    "environment": {
+      "type": "object",
+      "description": "Beschreibt den Umgebungsrahmen der Szene",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "dimensions"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["indoor", "outdoor", "custom"],
+          "description": "Art der Umgebung"
+        },
+        "dimensions": {
+          "$ref": "#/definitions/dimensions3D",
+          "description": "Raum-Abmessungen (oder generische Dimensionen)"
+        },
+        "lighting": {
+          "type": "array",
+          "description": "Globale Lichtquellen",
+          "items": {
+            "$ref": "#/definitions/lightSource"
+          }
+        },
+        "background": {
+          "type": "string",
+          "description": "Optionales Hintergrundbild oder prozeduraler Backdrop"
+        }
+      }
+    },
+    "dimensions3D": {
+      "type": "object",
+      "description": "Dimensionen/Skalierung pro Achse",
+      "additionalProperties": false,
+      "required": ["width", "height", "depth"],
+      "properties": {
+        "width": {
+          "type": "number",
+          "description": "Skalierungsfaktor auf der X-Achse"
+        },
+        "height": {
+          "type": "number",
+          "description": "Skalierungsfaktor auf der Y-Achse"
+        },
+        "depth": {
+          "type": "number",
+          "description": "Skalierungsfaktor auf der Z-Achse"
+        }
+      }
+    },
+    "lightSource": {
+      "type": "object",
+      "description": "Definition einer Lichtquelle",
+      "additionalProperties": false,
+      "required": ["lightType"],
+      "properties": {
+        "lightType": {
+          "type": "string",
+          "enum": ["ambient", "directional", "point", "spot"],
+          "description": "Art der Lichtquelle"
+        },
+        "intensity": {
+          "type": "number",
+          "description": "Helligkeit der Lichtquelle"
+        },
+        "color": {
+          "type": "string",
+          "description": "Farbe der Lichtquelle (Hex-Wert, z.B. '#FFFFFF')"
+        },
+        "range": {
+          "type": "number",
+          "description": "Radius bei point-/spot-Licht"
+        },
+        "spotAngle": {
+          "type": "number",
+          "description": "Öffnungswinkel in Grad bei spot-Licht"
+        }
+      }
+    },
+    "xyzCoordinates": {
+      "type": "object",
+      "description": "3D-Vektor (z.B. Position oder Rotation). Die Koordinaten werden in der Reihenfolge x, y, z interpretiert. Bei Rotation werden die Euler-Winkel in der Reihenfolge: x (Roll), y (Pitch), z (Yaw) erwartet.",
+      "additionalProperties": false,
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" }
+      }
+    },
+    "relativePositioning": {
+      "type": "object",
+      "description": "Beschreibung der relativen Platzierung zu einem anderen Objekt. Für 'below' ist distance optional; für 'next_to' ist ausschließlich offset zulässig (distance ist nicht erlaubt).",
+      "additionalProperties": false,
+      "required": ["referenceObject", "relation"],
+      "properties": {
+        "referenceObject": {
+          "type": "string",
+          "description": "objectId des Referenzobjekts"
+        },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "in_front_of_positive_z",
+            "behind_negative_z",
+            "left_of_negative_x",
+            "right_of_positive_x",
+            "on_top_of",
+            "below",
+            "next_to",
+            "over"
+          ],
+          "description": "Art der räumlichen Beziehung zum Referenzobjekt"
+        },
+        "distance": {
+          "type": "number",
+          "description": "Abstand (optional, abhängig von relation)"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "relation": { "const": "on_top_of" } }
+          },
+          "then": {
+            "properties": { "distance": false }
+          }
+        },
+        {
+          "if": {
+            "properties": { "relation": { "const": "over" } }
+          },
+          "then": {
+            "required": ["distance"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "relation": { "const": "next_to" } }
+          },
+          "then": {
+            "properties": { "distance": false }
+          }
+        }
+      ]
+    },
+    "topLevelSceneObject": {
+      "type": "object",
+      "description": "Objekte, die direkt im Top-Level (scene.objects) stehen",
+      "additionalProperties": false,
+      "required": [
+        "objectId",
+        "objectType",
+        "position",
+        "rotation",
+        "dimensions"
+      ],
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "description": "Eindeutiger Bezeichner für dieses Objekt"
+        },
+        "objectType": {
+          "type": "string",
+          "description": "Typ/Kategorie (z.B. 'chair', 'lamp', 'table')"
+        },
+        "assetName": {
+          "type": "string",
+          "description": "Name oder Pfad des Assets (z.B. 'chair_default.fbx')"
+        },
+        "position": {
+          "$ref": "#/definitions/xyzCoordinates",
+          "description": "Absolute Position in Weltkoordinaten"
+        },
+        "rotation": {
+          "$ref": "#/definitions/xyzCoordinates",
+          "description": "Rotation in Euler-Winkeln (x, y, z) in der Reihenfolge: x (Roll), y (Pitch), z (Yaw)"
+        },
+        "dimensions": {
+          "$ref": "#/definitions/dimensions3D",
+          "description": "Skalierung pro Achse (width, height, depth)"
+        },
+        "group": {
+          "type": "string",
+          "description": "Optional: Name der Objektgruppe, zu der dieses Objekt gehört. Der Gruppenname muss in 'objectGroups' definiert sein."
+        },
+        "relativePositioning": {
+          "$ref": "#/definitions/relativePositioning",
+          "description": "Optionale relative Positionierung zu einem anderen Objekt"
+        },
+        "offset": {
+          "$ref": "#/definitions/xyzCoordinates",
+          "description": "Feinjustierung der Position (lokaler Offset, optional, erforderlich bei 'next_to')"
+        },
+        "children": {
+          "type": "array",
+          "description": "Kind-Objekte (childSceneObject), die hierarchisch an diesem Objekt hängen",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/childSceneObject"
+          }
+        },
+        "anchors": {
+          "type": "object",
+          "description": "Definierte Ankerpunkte als Key-Value-Paare",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^[a-zA-Z0-9_\\-]+$": {
+              "$ref": "#/definitions/xyzCoordinates"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "relativePositioning": {
+                "properties": { "relation": { "const": "next_to" } },
+                "required": ["relation"]
+              }
+            }
+          },
+          "then": {
+            "required": ["offset"]
+          }
+        }
+      ]
+    },
+    "childSceneObject": {
+      "type": "object",
+      "description": "Objekte, die als Kinder (children) eines anderen Objekts definiert sind. Absolute Positionierung (position) ist in diesem Fall nicht erlaubt.",
+      "additionalProperties": false,
+      "required": [
+        "objectId",
+        "objectType",
+        "relativePositioning",
+        "rotation",
+        "dimensions"
+      ],
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "description": "Eindeutiger Bezeichner für dieses Objekt"
+        },
+        "objectType": {
+          "type": "string",
+          "description": "Typ/Kategorie (z.B. 'chair', 'lamp', 'table')"
+        },
+        "assetName": {
+          "type": "string",
+          "description": "Name oder Pfad des Assets (z.B. 'chair_default.fbx')"
+        },
+        "group": {
+          "type": "string",
+          "description": "Optional: Name der Objektgruppe, zu der dieses Kind-Objekt gehört."
+        },
+        "rotation": {
+          "$ref": "#/definitions/xyzCoordinates",
+          "description": "Rotation in Euler-Winkeln (x, y, z) in der Reihenfolge: x (Roll), y (Pitch), z (Yaw)"
+        },
+        "dimensions": {
+          "$ref": "#/definitions/dimensions3D",
+          "description": "Skalierung pro Achse (width, height, depth)"
+        },
+        "relativePositioning": {
+          "$ref": "#/definitions/relativePositioning",
+          "description": "Pflicht bei Child-Objekten, um den Bezug zum Parent zu definieren"
+        },
+        "offset": {
+          "$ref": "#/definitions/xyzCoordinates",
+          "description": "Feinjustierung der Position (lokaler Offset, optional, erforderlich bei 'next_to')"
+        },
+        "children": {
+          "type": "array",
+          "description": "Verschachtelte Kinder (selbes Schema wie childSceneObject)",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/childSceneObject"
+          }
+        },
+        "anchors": {
+          "type": "object",
+          "description": "Definierte Ankerpunkte als Key-Value-Paare",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^[a-zA-Z0-9_\\-]+$": {
+              "$ref": "#/definitions/xyzCoordinates"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "relativePositioning": {
+                "properties": { "relation": { "const": "next_to" } },
+                "required": ["relation"]
+              }
+            }
+          },
+          "then": {
+            "required": ["offset"]
+          }
+        },
+        {
+          "if": {
+            "required": ["relativePositioning"]
+          },
+          "then": {
+            "not": {
+              "required": ["position"]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+#Examples
+##Example
+Plan :
+- create a classroom with a teacher desk and ten tables and chairs for the students .
+- create ten tables and put in 2 rows
+- create ten chairs and put them behind the tables
+- create a teacher desk and a teacher table
+- create a blackboard for the teacher
+Assistant:
+{
+  "scene": {
+    "sceneName": "Klassenzimmer",
+    "environment": {
+      "type": "indoor",
+      "dimensions": {
+        "width": 20,
+        "height": 4,
+        "depth": 30
+      },
+      "lighting": [
+        {
+          "lightType": "ambient",
+          "intensity": 0.5,
+          "color": "#FFFFFF"
+        }
+      ],
+      "background": "classroom_background.jpg"
+    },
+    "objectGroups": {
+      "walls": {
+        "color": "#CCCCCC"
+      },
+      "tables": {
+        "color": "#A0522D"
+      },
+      "chairs": {
+        "color": "#0000FF"
+      },
+      "teacher": {
+        "color": "#FF0000"
+      },
+      "board": {
+        "color": "#008000"
+      }
+    },
+    "objects": [
+      {
+        "objectId": "teacherBoard",
+        "objectType": "board",
+        "assetName": "board_asset",
+        "position": {
+          "x": 0,
+          "y": 2.8,
+          "z": 0.1
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 4,
+          "height": 1.5,
+          "depth": 0.1
+        },
+        "group": "board"
+      },
+      {
+        "objectId": "teacherTable",
+        "objectType": "teacher_table",
+        "assetName": "teacher_table_asset",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 2
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 3,
+          "height": 0.8,
+          "depth": 1.5
+        },
+        "group": "teacher"
+      },
+      {
+        "objectId": "table_1",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": -4,
+          "y": 0,
+          "z": 5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_1",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_1",
+              "relation": "in_front_of_positive_z",
+              "distance": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_2",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": -2,
+          "y": 0,
+          "z": 5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_2",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_2",
+              "relation": "in_front_of_positive_z",
+              "distance": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_3",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_3",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_3",
+              "relation": "in_front_of_positive_z",
+              "distance": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_4",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_4",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_4",
+              "relation": "in_front_of_positive_z",
+              "distance": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_5",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_5",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_5",
+              "relation": "in_front_of_positive_z",
+              "distance": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_6",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": -4,
+          "y": 0,
+          "z": 8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_6",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_6",
+              "relation": "in_front_of_positive_z",
+              "distance": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_7",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": -2,
+          "y": 0,
+          "z": 8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_7",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_7",
+              "relation": "in_front_of_positive_z",
+              "distance": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_8",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_8",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_8",
+              "relation": "in_front_of_positive_z",
+              "distance": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_9",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_9",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_9",
+              "relation": "in_front_of_positive_z",
+              "distance": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_10",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_10",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_10",
+              "relation": "in_front_of_positive_z",
+              "distance": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      }
+    ]
+  }
+}

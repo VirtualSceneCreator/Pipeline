@@ -1,0 +1,1299 @@
+{
+	"scene": {
+		"sceneName": "Compact_Classroom_for_15_Students",
+		"environment": {
+			"type": "indoor",
+			"dimensions": {
+				"width": 10.0,
+				"height": 3.0,
+				"depth": 8.0
+			},
+			"lighting": [
+				{
+					"lightType": "ambient",
+					"intensity": 0.4,
+					"color": "#FFFFFF"
+				},
+				{
+					"lightType": "directional",
+					"intensity": 0.9,
+					"color": "#FFFFFF"
+				}
+			],
+			"background": "#EFEFEF"
+		},
+		"objectGroups": {
+			"structural": {
+				"color": "#CCCCCC"
+			},
+			"floor": {
+				"color": "#BDBDBD"
+			},
+			"furniture": {
+				"color": "#A67C52"
+			},
+			"seating": {
+				"color": "#1E90FF"
+			},
+			"decor": {
+				"color": "#FFD700"
+			},
+			"lighting": {
+				"color": "#FFFFE0"
+			},
+			"windows": {
+				"color": "#ADD8E6"
+			},
+			"equipment": {
+				"color": "#B0C4DE"
+			},
+			"plants": {
+				"color": "#228B22"
+			},
+			"waste": {
+				"color": "#808080"
+			}
+		},
+		"objects": [
+			{
+				"objectId": "floor",
+				"objectType": "floor",
+				"position": {
+					"x": 0.0,
+					"y": 0.05,
+					"z": 0.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 10.0,
+					"height": 0.1,
+					"depth": 8.0
+				},
+				"group": "floor",
+				"specification": "A smooth, continuous floor surface rendered in a neutral light tone to brighten the classroom ambiance. It features a subtle matte finish with a slight texture to prevent slipping and ensure durability. The material resembles a polished laminate with a gentle sheen, seamlessly integrating with the overall design."
+			},
+			{
+				"objectId": "ceiling",
+				"objectType": "ceiling",
+				"position": {
+					"x": 0.0,
+					"y": 3.05,
+					"z": 0.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 10.0,
+					"height": 0.1,
+					"depth": 8.0
+				},
+				"group": "structural",
+				"specification": "A simple, flat ceiling with a neutral light hue creating an unobtrusive overhead plane. It includes a subtle texture to minimize echoes and seamlessly accommodates recessed fixtures. The finish is matte to diffuse light evenly across the classroom."
+			},
+			{
+				"objectId": "wall_north",
+				"objectType": "wall",
+				"position": {
+					"x": 0.0,
+					"y": 1.5,
+					"z": 3.9
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 10.0,
+					"height": 3.0,
+					"depth": 0.2
+				},
+				"group": "structural",
+				"specification": "Neutral, light-colored walls with a smooth, matte finish to create a bright and inviting atmosphere. The surfaces are free of ornamentation to allow for educational displays. The finish reduces glare and provides a uniform backdrop for posters and whiteboards."
+			},
+			{
+				"objectId": "wall_south",
+				"objectType": "wall",
+				"position": {
+					"x": 0.0,
+					"y": 1.5,
+					"z": -3.9
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 180.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 10.0,
+					"height": 3.0,
+					"depth": 0.2
+				},
+				"group": "structural",
+				"specification": "Neutral, light-colored walls with a smooth, matte finish to create a bright and inviting atmosphere. The surfaces are free of ornamentation to allow for educational displays. The finish reduces glare and provides a uniform backdrop for posters and whiteboards."
+			},
+			{
+				"objectId": "wall_east",
+				"objectType": "wall",
+				"position": {
+					"x": 4.9,
+					"y": 1.5,
+					"z": 0.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 90.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 8.0,
+					"height": 3.0,
+					"depth": 0.2
+				},
+				"group": "structural",
+				"specification": "Neutral, light-colored walls with a smooth, matte finish to create a bright and inviting atmosphere. The surfaces are free of ornamentation to allow for educational displays. The finish reduces glare and provides a uniform backdrop for posters and whiteboards."
+			},
+			{
+				"objectId": "wall_west",
+				"objectType": "wall",
+				"position": {
+					"x": -4.9,
+					"y": 1.5,
+					"z": 0.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 270.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 8.0,
+					"height": 3.0,
+					"depth": 0.2
+				},
+				"group": "structural",
+				"specification": "Neutral, light-colored walls with a smooth, matte finish to create a bright and inviting atmosphere. The surfaces are free of ornamentation to allow for educational displays. The finish reduces glare and provides a uniform backdrop for posters and whiteboards."
+			},
+			{
+				"objectId": "teacher_desk",
+				"objectType": "desk",
+				"position": {
+					"x": 0.0,
+					"y": 0.375,
+					"z": 3.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 180.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.8,
+					"height": 0.75,
+					"depth": 0.8
+				},
+				"group": "furniture",
+				"specification": "A large rectangular desk showcasing a darker wood finish with a pronounced grain texture and polished sheen. It features clean, straight edges and sturdy legs, with a slight ergonomic cutout on the teacher's side for comfortable seating. The desk surface has integrated cable management channels and subtle bevel details."
+			},
+			{
+				"objectId": "teacher_chair",
+				"objectType": "chair",
+				"position": {
+					"x": 0.0,
+					"y": 0.6,
+					"z": 2.2
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 180.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.6,
+					"height": 1.2,
+					"depth": 0.6
+				},
+				"group": "seating",
+				"specification": "An ergonomic office chair upholstered in a complementary blue fabric with a fine weave texture. It has a contoured backrest and cushioned seat for lumbar support and comfort. The chair features adjustable height mechanism, sturdy metal base with caster wheels, and a sleek, modern silhouette."
+			},
+			{
+				"objectId": "whiteboard",
+				"objectType": "whiteboard",
+				"position": {
+					"x": 0.0,
+					"y": 1.8,
+					"z": 3.825
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 180.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 2.5,
+					"height": 1.0,
+					"depth": 0.05
+				},
+				"group": "equipment",
+				"specification": "A large rectangular whiteboard with a sleek aluminum frame and a glossy writing surface. It has a bright white finish for clear visibility, magnetic compatibility, and minimal edge thickness. Integrated mounting hardware is concealed for a clean appearance."
+			},
+			{
+				"objectId": "projector",
+				"objectType": "projector",
+				"position": {
+					"x": 0.0,
+					"y": 2.85,
+					"z": 2.9
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 180.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.4,
+					"height": 0.2,
+					"depth": 0.4
+				},
+				"group": "equipment",
+				"specification": "A compact ceiling-mounted projector with a streamlined white casing. It features a lens at the front, ventilation grills on the sides, and subtle embossed branding. The form factor is minimalist, designed to blend discreetly into the ceiling environment."
+			},
+			{
+				"objectId": "bookshelf1",
+				"objectType": "bookshelf",
+				"position": {
+					"x": 4.6,
+					"y": 1.0,
+					"z": 1.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 270.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 2.0,
+					"depth": 0.4
+				},
+				"group": "furniture",
+				"specification": "A tall wooden bookshelf with a light wood finish and visible grain texture. It contains adjustable shelves filled with neatly arranged assorted books in varied sizes and colors. The design is simple and functional, with a sturdy rectangular frame and clean lines."
+			},
+			{
+				"objectId": "bookshelf2",
+				"objectType": "bookshelf",
+				"position": {
+					"x": 4.6,
+					"y": 1.0,
+					"z": -1.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 270.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 2.0,
+					"depth": 0.4
+				},
+				"group": "furniture",
+				"specification": "A tall wooden bookshelf with a light wood finish and visible grain texture. It contains adjustable shelves filled with neatly arranged assorted books in varied sizes and colors. The design is simple and functional, with a sturdy rectangular frame and clean lines."
+			},
+			{
+				"objectId": "window1",
+				"objectType": "window",
+				"position": {
+					"x": 4.85,
+					"y": 1.5,
+					"z": 3.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 270.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.2,
+					"height": 1.0,
+					"depth": 0.1
+				},
+				"group": "windows",
+				"specification": "A large window assembly with a slim wooden frame painted in a neutral hue. The window has clear glass panes and is draped with lightweight, semi-transparent curtains in a soft fabric. The curtains are gently pleated to allow natural light while providing a warm, inviting atmosphere."
+			},
+			{
+				"objectId": "wall_clock",
+				"objectType": "clock",
+				"position": {
+					"x": -4.75,
+					"y": 2.0,
+					"z": 2.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 90.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.5,
+					"depth": 0.1
+				},
+				"group": "decor",
+				"specification": "A circular wall clock featuring a white face with bold black numerals and slender hands. The frame is a matte metallic finish, and it includes a red-tipped second hand. The design emphasizes readability and classic style."
+			},
+			{
+				"objectId": "potted_plant",
+				"objectType": "plant",
+				"position": {
+					"x": -4.5,
+					"y": 0.6,
+					"z": -3.5
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 45.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.6,
+					"height": 1.2,
+					"depth": 0.6
+				},
+				"group": "plants",
+				"specification": "A lush potted plant with vibrant green leaves in a simple ceramic pot. The foliage is dense and varied in shape, adding a natural accent to the corner. The pot has a smooth, neutral finish and a subtle rounded profile."
+			},
+			{
+				"objectId": "waste_bin_teacher",
+				"objectType": "bin",
+				"position": {
+					"x": 1.5,
+					"y": 0.3,
+					"z": 3.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.4,
+					"height": 0.6,
+					"depth": 0.4
+				},
+				"group": "waste",
+				"specification": "A simple cylindrical waste bin in a neutral grey color with a slightly textured surface. The open-top design allows easy disposal of trash. The bin has a smooth interior finish for easy cleaning and a minimalistic aesthetic."
+			},
+			{
+				"objectId": "waste_bin_back",
+				"objectType": "bin",
+				"position": {
+					"x": 0.0,
+					"y": 0.3,
+					"z": -3.5
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.4,
+					"height": 0.6,
+					"depth": 0.4
+				},
+				"group": "waste",
+				"specification": "A simple cylindrical waste bin in a neutral grey color with a slightly textured surface. The open-top design allows easy disposal of trash. The bin has a smooth interior finish for easy cleaning and a minimalistic aesthetic."
+			},
+			{
+				"objectId": "ceiling_light1",
+				"objectType": "ceiling_light",
+				"position": {
+					"x": -3.0,
+					"y": 2.9,
+					"z": 2.5
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.4,
+					"height": 0.1,
+					"depth": 0.4
+				},
+				"group": "lighting",
+				"specification": "A rectangular recessed ceiling light fixture with a slim metallic frame and a frosted diffuser panel. It emits bright, uniform lighting across the space and has a clean, minimal design. The light is energy-efficient and integrates seamlessly into the ceiling plane."
+			},
+			{
+				"objectId": "ceiling_light2",
+				"objectType": "ceiling_light",
+				"position": {
+					"x": 0.0,
+					"y": 2.9,
+					"z": 2.5
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.4,
+					"height": 0.1,
+					"depth": 0.4
+				},
+				"group": "lighting",
+				"specification": "A rectangular recessed ceiling light fixture with a slim metallic frame and a frosted diffuser panel. It emits bright, uniform lighting across the space and has a clean, minimal design. The light is energy-efficient and integrates seamlessly into the ceiling plane."
+			},
+			{
+				"objectId": "ceiling_light3",
+				"objectType": "ceiling_light",
+				"position": {
+					"x": 3.0,
+					"y": 2.9,
+					"z": 2.5
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.4,
+					"height": 0.1,
+					"depth": 0.4
+				},
+				"group": "lighting",
+				"specification": "A rectangular recessed ceiling light fixture with a slim metallic frame and a frosted diffuser panel. It emits bright, uniform lighting across the space and has a clean, minimal design. The light is energy-efficient and integrates seamlessly into the ceiling plane."
+			},
+			{
+				"objectId": "ceiling_light4",
+				"objectType": "ceiling_light",
+				"position": {
+					"x": -3.0,
+					"y": 2.9,
+					"z": 0.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.4,
+					"height": 0.1,
+					"depth": 0.4
+				},
+				"group": "lighting",
+				"specification": "A rectangular recessed ceiling light fixture with a slim metallic frame and a frosted diffuser panel. It emits bright, uniform lighting across the space and has a clean, minimal design. The light is energy-efficient and integrates seamlessly into the ceiling plane."
+			},
+			{
+				"objectId": "ceiling_light5",
+				"objectType": "ceiling_light",
+				"position": {
+					"x": 0.0,
+					"y": 2.9,
+					"z": 0.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.4,
+					"height": 0.1,
+					"depth": 0.4
+				},
+				"group": "lighting",
+				"specification": "A rectangular recessed ceiling light fixture with a slim metallic frame and a frosted diffuser panel. It emits bright, uniform lighting across the space and has a clean, minimal design. The light is energy-efficient and integrates seamlessly into the ceiling plane."
+			},
+			{
+				"objectId": "ceiling_light6",
+				"objectType": "ceiling_light",
+				"position": {
+					"x": 3.0,
+					"y": 2.9,
+					"z": 0.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.4,
+					"height": 0.1,
+					"depth": 0.4
+				},
+				"group": "lighting",
+				"specification": "A rectangular recessed ceiling light fixture with a slim metallic frame and a frosted diffuser panel. It emits bright, uniform lighting across the space and has a clean, minimal design. The light is energy-efficient and integrates seamlessly into the ceiling plane."
+			},
+			{
+				"objectId": "poster1",
+				"objectType": "poster",
+				"position": {
+					"x": -2.5,
+					"y": 1.5,
+					"z": -3.79
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.8,
+					"height": 0.6,
+					"depth": 0.02
+				},
+				"group": "decor",
+				"specification": "An educational poster printed on matte paper featuring colorful charts and instructional graphics. It displays clear typography and illustrative diagrams relevant to the curriculum. Each poster has subtle border outlines and adhesive mounting shown at the corners."
+			},
+			{
+				"objectId": "poster2",
+				"objectType": "poster",
+				"position": {
+					"x": -0.8,
+					"y": 1.5,
+					"z": -3.79
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.8,
+					"height": 0.6,
+					"depth": 0.02
+				},
+				"group": "decor",
+				"specification": "An educational poster printed on matte paper featuring colorful charts and instructional graphics. It displays clear typography and illustrative diagrams relevant to the curriculum. Each poster has subtle border outlines and adhesive mounting shown at the corners."
+			},
+			{
+				"objectId": "poster3",
+				"objectType": "poster",
+				"position": {
+					"x": 0.8,
+					"y": 1.5,
+					"z": -3.79
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.8,
+					"height": 0.6,
+					"depth": 0.02
+				},
+				"group": "decor",
+				"specification": "An educational poster printed on matte paper featuring colorful charts and instructional graphics. It displays clear typography and illustrative diagrams relevant to the curriculum. Each poster has subtle border outlines and adhesive mounting shown at the corners."
+			},
+			{
+				"objectId": "poster4",
+				"objectType": "poster",
+				"position": {
+					"x": 2.5,
+					"y": 1.5,
+					"z": -3.79
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.8,
+					"height": 0.6,
+					"depth": 0.02
+				},
+				"group": "decor",
+				"specification": "An educational poster printed on matte paper featuring colorful charts and instructional graphics. It displays clear typography and illustrative diagrams relevant to the curriculum. Each poster has subtle border outlines and adhesive mounting shown at the corners."
+			},
+			{
+				"objectId": "poster5",
+				"objectType": "poster",
+				"position": {
+					"x": 4.81,
+					"y": 1.5,
+					"z": 0.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 270.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.8,
+					"height": 0.6,
+					"depth": 0.02
+				},
+				"group": "decor",
+				"specification": "An educational poster printed on matte paper featuring colorful charts and instructional graphics. It displays clear typography and illustrative diagrams relevant to the curriculum. Each poster has subtle border outlines and adhesive mounting shown at the corners."
+			},
+			{
+				"objectId": "poster6",
+				"objectType": "poster",
+				"position": {
+					"x": -4.81,
+					"y": 1.5,
+					"z": 0.0
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 90.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.8,
+					"height": 0.6,
+					"depth": 0.02
+				},
+				"group": "decor",
+				"specification": "An educational poster printed on matte paper featuring colorful charts and instructional graphics. It displays clear typography and illustrative diagrams relevant to the curriculum. Each poster has subtle border outlines and adhesive mounting shown at the corners."
+			},
+			{
+				"objectId": "student_desk1",
+				"objectType": "desk",
+				"position": {
+					"x": -3.6,
+					"y": 0.375,
+					"z": 1.3
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair1",
+				"objectType": "chair",
+				"position": {
+					"x": -3.6,
+					"y": 0.45,
+					"z": 0.7
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk2",
+				"objectType": "desk",
+				"position": {
+					"x": -1.8,
+					"y": 0.375,
+					"z": 1.3
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair2",
+				"objectType": "chair",
+				"position": {
+					"x": -1.8,
+					"y": 0.45,
+					"z": 0.7
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk3",
+				"objectType": "desk",
+				"position": {
+					"x": 0.0,
+					"y": 0.375,
+					"z": 1.3
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair3",
+				"objectType": "chair",
+				"position": {
+					"x": 0.0,
+					"y": 0.45,
+					"z": 0.7
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk4",
+				"objectType": "desk",
+				"position": {
+					"x": 1.8,
+					"y": 0.375,
+					"z": 1.3
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair4",
+				"objectType": "chair",
+				"position": {
+					"x": 1.8,
+					"y": 0.45,
+					"z": 0.7
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk5",
+				"objectType": "desk",
+				"position": {
+					"x": 3.6,
+					"y": 0.375,
+					"z": 1.3
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair5",
+				"objectType": "chair",
+				"position": {
+					"x": 3.6,
+					"y": 0.45,
+					"z": 0.7
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk6",
+				"objectType": "desk",
+				"position": {
+					"x": -3.6,
+					"y": 0.375,
+					"z": -0.3
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair6",
+				"objectType": "chair",
+				"position": {
+					"x": -3.6,
+					"y": 0.45,
+					"z": -1.1
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk7",
+				"objectType": "desk",
+				"position": {
+					"x": -1.8,
+					"y": 0.375,
+					"z": -0.3
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair7",
+				"objectType": "chair",
+				"position": {
+					"x": -1.8,
+					"y": 0.45,
+					"z": -1.1
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk8",
+				"objectType": "desk",
+				"position": {
+					"x": 0.0,
+					"y": 0.375,
+					"z": -0.3
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair8",
+				"objectType": "chair",
+				"position": {
+					"x": 0.0,
+					"y": 0.45,
+					"z": -1.1
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk9",
+				"objectType": "desk",
+				"position": {
+					"x": 1.8,
+					"y": 0.375,
+					"z": -0.3
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair9",
+				"objectType": "chair",
+				"position": {
+					"x": 1.8,
+					"y": 0.45,
+					"z": -1.1
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk10",
+				"objectType": "desk",
+				"position": {
+					"x": 3.6,
+					"y": 0.375,
+					"z": -0.3
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair10",
+				"objectType": "chair",
+				"position": {
+					"x": 3.6,
+					"y": 0.45,
+					"z": -1.1
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk11",
+				"objectType": "desk",
+				"position": {
+					"x": -3.6,
+					"y": 0.375,
+					"z": -1.9
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair11",
+				"objectType": "chair",
+				"position": {
+					"x": -3.6,
+					"y": 0.45,
+					"z": -2.7
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk12",
+				"objectType": "desk",
+				"position": {
+					"x": -1.8,
+					"y": 0.375,
+					"z": -1.9
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair12",
+				"objectType": "chair",
+				"position": {
+					"x": -1.8,
+					"y": 0.45,
+					"z": -2.7
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk13",
+				"objectType": "desk",
+				"position": {
+					"x": 0.0,
+					"y": 0.375,
+					"z": -1.9
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair13",
+				"objectType": "chair",
+				"position": {
+					"x": 0.0,
+					"y": 0.45,
+					"z": -2.7
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk14",
+				"objectType": "desk",
+				"position": {
+					"x": 1.8,
+					"y": 0.375,
+					"z": -1.9
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair14",
+				"objectType": "chair",
+				"position": {
+					"x": 1.8,
+					"y": 0.45,
+					"z": -2.7
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			},
+			{
+				"objectId": "student_desk15",
+				"objectType": "desk",
+				"position": {
+					"x": 3.6,
+					"y": 0.375,
+					"z": -1.9
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 1.0,
+					"height": 0.75,
+					"depth": 0.6
+				},
+				"group": "furniture",
+				"specification": "A rectangular student desk with a light wood grain finish and a matte surface. It has gentle rounded corners for safety and sturdy legs with simple cross-bracing. The desk surface is smooth and spacious, designed for individual workspace in a classroom setting."
+			},
+			{
+				"objectId": "student_chair15",
+				"objectType": "chair",
+				"position": {
+					"x": 3.6,
+					"y": 0.45,
+					"z": -2.7
+				},
+				"rotation": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"dimensions": {
+					"width": 0.5,
+					"height": 0.9,
+					"depth": 0.5
+				},
+				"group": "seating",
+				"specification": "A simple classroom chair with a molded seat and back upholstered in a complementary blue color. It features a metal frame in a neutral tone, a gently curved backrest for comfort, and four sturdy legs. The seat and back have a smooth, matte finish."
+			}
+		]
+	}
+}

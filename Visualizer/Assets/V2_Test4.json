@@ -1,0 +1,120 @@
+{
+  "scene": {
+    "sceneName": "Stadtlandschaft",
+    "environment": {
+      "type": "outdoor",
+      "dimensions": {
+        "width": 1000,
+        "height": 300,
+        "depth": 1000
+      },
+      "lighting": [
+        {
+          "lightType": "directional",
+          "intensity": 1.0,
+          "color": "#FFFFFF",
+          "spotAngle": 45
+        }
+      ],
+      "background": "city_sky.jpg"
+    },
+    "objectGroups": {
+      "residential": {
+        "color": "#FFDD00"
+      },
+      "commercial": {
+        "color": "#00AACC"
+      }
+    },
+    "objects": [
+      {
+        "objectId": "house_1",
+        "objectType": "house",
+        "assetName": "house_model1.fbx",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 20
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 10,
+          "height": 8,
+          "depth": 12
+        },
+        "group": "residential",
+        "children": [
+          {
+            "objectId": "house_1_door",
+            "objectType": "door",
+            "relativePositioning": {
+              "referenceObject": "house_1",
+              "relation": "next_to"
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 1,
+              "height": 2.5,
+              "depth": 0.1
+            },
+            "offset": {
+              "x": 0.5,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ]
+      },
+      {
+        "objectId": "house_2",
+        "objectType": "house",
+        "assetName": "house_model2.fbx",
+        "position": {
+          "x": -15,
+          "y": 0,
+          "z": 30
+        },
+        "rotation": {
+          "x": 0,
+          "y": 45,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 12,
+          "height": 10,
+          "depth": 14
+        },
+        "group": "residential"
+      },
+      {
+        "objectId": "house_3",
+        "objectType": "house",
+        "assetName": "house_model3.fbx",
+        "position": {
+          "x": 40,
+          "y": 0,
+          "z": -20
+        },
+        "rotation": {
+          "x": 0,
+          "y": 90,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 8,
+          "height": 6,
+          "depth": 10
+        },
+        "group": "commercial"
+      }
+    ]
+  }
+}

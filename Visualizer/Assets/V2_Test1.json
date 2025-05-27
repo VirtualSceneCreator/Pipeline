@@ -1,0 +1,598 @@
+{
+  "scene": {
+    "sceneName": "Klassenzimmer",
+    "environment": {
+      "type": "indoor",
+      "dimensions": {
+        "width": 10,
+        "height": 3,
+        "depth": 20
+      },
+      "lighting": [
+        {
+          "lightType": "ambient",
+          "intensity": 0.5,
+          "color": "#FFFFFF"
+        }
+      ],
+      "background": "classroom_background.jpg"
+    },
+    "objectGroups": {
+      "walls": {
+        "color": "#CCCCCC"
+      },
+      "tables": {
+        "color": "#A0522D"
+      },
+      "chairs": {
+        "color": "#0000FF"
+      }
+    },
+    "objects": [
+      {
+        "objectId": "backWall",
+        "objectType": "wall",
+        "assetName": "wall_asset",
+        "position": {
+          "x": 0,
+          "y": 1.5,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 10,
+          "height": 3,
+          "depth": 0.2
+        },
+        "group": "walls"
+      },
+      {
+        "objectId": "frontWall",
+        "objectType": "wall",
+        "assetName": "wall_asset",
+        "position": {
+          "x": 0,
+          "y": 1.5,
+          "z": 20
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 10,
+          "height": 3,
+          "depth": 0.2
+        },
+        "group": "walls"
+      },
+      {
+        "objectId": "leftWall",
+        "objectType": "wall",
+        "assetName": "wall_asset",
+        "position": {
+          "x": -5,
+          "y": 1.5,
+          "z": 10
+        },
+        "rotation": {
+          "x": 0,
+          "y": 90,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 20,
+          "height": 3,
+          "depth": 0.2
+        },
+        "group": "walls"
+      },
+      {
+        "objectId": "rightWall",
+        "objectType": "wall",
+        "assetName": "wall_asset",
+        "position": {
+          "x": 5,
+          "y": 1.5,
+          "z": 10
+        },
+        "rotation": {
+          "x": 0,
+          "y": -90,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 20,
+          "height": 3,
+          "depth": 0.2
+        },
+        "group": "walls"
+      },
+      {
+        "objectId": "table_1",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": -2,
+          "y": 0,
+          "z": 2
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_1",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_1",
+              "relation": "next_to"
+            },
+            "offset": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_2",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 2
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_2",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_2",
+              "relation": "next_to"
+            },
+            "offset": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_3",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": -2,
+          "y": 0,
+          "z": 5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_3",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_3",
+              "relation": "next_to"
+            },
+            "offset": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_4",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_4",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_4",
+              "relation": "next_to"
+            },
+            "offset": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_5",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": -2,
+          "y": 0,
+          "z": 8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_5",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_5",
+              "relation": "next_to"
+            },
+            "offset": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_6",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_6",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_6",
+              "relation": "next_to"
+            },
+            "offset": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_7",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": -2,
+          "y": 0,
+          "z": 11
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_7",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_7",
+              "relation": "next_to"
+            },
+            "offset": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_8",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 11
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_8",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_8",
+              "relation": "next_to"
+            },
+            "offset": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_9",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": -2,
+          "y": 0,
+          "z": 14
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_9",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_9",
+              "relation": "next_to"
+            },
+            "offset": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      },
+      {
+        "objectId": "table_10",
+        "objectType": "table",
+        "assetName": "table_asset",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 14
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 2,
+          "height": 0.8,
+          "depth": 1
+        },
+        "group": "tables",
+        "children": [
+          {
+            "objectId": "chair_10",
+            "objectType": "chair",
+            "assetName": "chair_asset",
+            "relativePositioning": {
+              "referenceObject": "table_10",
+              "relation": "next_to"
+            },
+            "offset": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "dimensions": {
+              "width": 0.5,
+              "height": 0.8,
+              "depth": 0.5
+            },
+            "group": "chairs"
+          }
+        ]
+      }
+    ]
+  }
+}

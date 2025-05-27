@@ -1,0 +1,9 @@
+.env
+.idea/
+__pycache__/
+*.pyc
+Output/*
+!Output/.gitkeep
+*.json
+*.json.meta
+

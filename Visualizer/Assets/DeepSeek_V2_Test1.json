@@ -1,0 +1,122 @@
+{
+  "scene": {
+    "type": "SceneObject",
+    "objectType": "World",
+    "position": {
+      "x": -10,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "bounds": {
+      "minX": -5.623489801,
+      "maxX": 7.043210941,
+      "minY": -5.5,
+      "maxY": 5.5,
+      "minZ": -5.5,
+      "maxZ": 5.5
+    }
+  },
+  "children": [
+    {
+      "_id": "whiteboard",
+      "type": "TopLevelChild",
+      "sceneObject": {
+        "objectType": "ChildSceneObject",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": {
+          "width": 3.486,
+          "height": 1.27,
+          "depth": 0.15
+        }
+      },
+      "relativePositioning": {
+        "relation": "attached"
+      },
+      "children": [
+        {
+          "_id": "teacher_desk",
+          "type": "ChildSceneObject",
+          "sceneObject": {
+            "objectType": "ChildSceneObject",
+            "position": {
+              "x": 1.5,
+              "y": -0.625,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          "relativePositioning": {
+            "relation": "inFrontOf"
+          },
+          "children": [
+            {
+              "_id": "table_1",
+              "type": "ChildSceneObject",
+              "sceneObject": {
+                "objectType": "ChildSceneObject",
+                "position": {
+                  "x": 4.5,
+                  "y": -2.625,
+                  "z": 0
+                },
+                "rotation": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              "relativePositioning": {
+                "children": [
+                  {
+                    "_id": "chair_1",
+                    "type": "ChildSceneObject",
+                    "sceneObject": {
+                      "objectType": "ChildSceneObject",
+                      "position": {
+                        "x": 5,
+                        "y": -2.875,
+                        "z": 0
+                      },
+                      "rotation": {
+                        "x": 1.571,
+                        "y": 0,
+                        "z": 0
+                      }
+                    },
+                    "relativePositioning": null
+                  }
+                ]
+              }
+            },
+            // Add similar objects for other tables and chairs...
+          ]
+        }
+      ],
+      "anciens": {
+        "whiteboard_table_1": {
+          "x": 3,
+          "y": -0.625,
+          "z": 0
+        }
+      }
+    }
+  ]
+}

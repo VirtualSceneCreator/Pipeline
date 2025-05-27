@@ -1,0 +1,201 @@
+{
+  "scene": {
+    "sceneName": "Klassenraum",
+    "environment": {
+      "type": "indoor",
+      "dimensions": {
+        "width": 15,
+        "height": 4,
+        "depth": 20
+      },
+      "lighting": [
+        {
+          "lightType": "directional",
+          "intensity": 1.0,
+          "color": "#ffffff",
+          "range": 25,
+          "spotAngle": 45
+        }
+      ],
+      "background": "Classroom background texture"
+    },
+    "objects": [
+      {
+        "objectId": "blackboard1",
+        "objectType": "blackboard",
+        "assetName": "blackboard_asset.fbx",
+        "position": { "x": 0, "y": 1.5, "z": -9 },
+        "rotation": { "x": 0, "y": 0, "z": 0 },
+        "dimensions": { "width": 8, "height": 2, "depth": 0.2 }
+      },
+      {
+        "objectId": "teacherDesk1",
+        "objectType": "teacher_desk",
+        "assetName": "teacher_desk.fbx",
+        "position": { "x": 0, "y": 0, "z": -5 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 2, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentDesk1",
+        "objectType": "desk",
+        "assetName": "student_desk.fbx",
+        "position": { "x": -2, "y": 0, "z": 0 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 1.5, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentDesk2",
+        "objectType": "desk",
+        "assetName": "student_desk.fbx",
+        "position": { "x": 2, "y": 0, "z": 0 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 1.5, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentChair1",
+        "objectType": "chair",
+        "assetName": "student_chair.fbx",
+        "position": { "x": -2, "y": 0, "z": 1 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 0.5, "height": 1, "depth": 0.5 }
+      },
+      {
+        "objectId": "studentChair2",
+        "objectType": "chair",
+        "assetName": "student_chair.fbx",
+        "position": { "x": 2, "y": 0, "z": 1 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 0.5, "height": 1, "depth": 0.5 }
+      },
+      {
+        "objectId": "studentDesk3",
+        "objectType": "desk",
+        "assetName": "student_desk.fbx",
+        "position": { "x": -2, "y": 0, "z": 2 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 1.5, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentDesk4",
+        "objectType": "desk",
+        "assetName": "student_desk.fbx",
+        "position": { "x": 2, "y": 0, "z": 2 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 1.5, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentChair3",
+        "objectType": "chair",
+        "assetName": "student_chair.fbx",
+        "position": { "x": -2, "y": 0, "z": 3 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 0.5, "height": 1, "depth": 0.5 }
+      },
+      {
+        "objectId": "studentChair4",
+        "objectType": "chair",
+        "assetName": "student_chair.fbx",
+        "position": { "x": 2, "y": 0, "z": 3 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 0.5, "height": 1, "depth": 0.5 }
+      },
+      {
+        "objectId": "studentDesk5",
+        "objectType": "desk",
+        "assetName": "student_desk.fbx",
+        "position": { "x": -2, "y": 0, "z": 4 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 1.5, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentDesk6",
+        "objectType": "desk",
+        "assetName": "student_desk.fbx",
+        "position": { "x": 2, "y": 0, "z": 4 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 1.5, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentChair5",
+        "objectType": "chair",
+        "assetName": "student_chair.fbx",
+        "position": { "x": -2, "y": 0, "z": 5 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 0.5, "height": 1, "depth": 0.5 }
+      },
+      {
+        "objectId": "studentChair6",
+        "objectType": "chair",
+        "assetName": "student_chair.fbx",
+        "position": { "x": 2, "y": 0, "z": 5 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 0.5, "height": 1, "depth": 0.5 }
+      },
+      {
+        "objectId": "studentDesk7",
+        "objectType": "desk",
+        "assetName": "student_desk.fbx",
+        "position": { "x": -2, "y": 0, "z": 6 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 1.5, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentDesk8",
+        "objectType": "desk",
+        "assetName": "student_desk.fbx",
+        "position": { "x": 2, "y": 0, "z": 6 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 1.5, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentChair7",
+        "objectType": "chair",
+        "assetName": "student_chair.fbx",
+        "position": { "x": -2, "y": 0, "z": 7 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 0.5, "height": 1, "depth": 0.5 }
+      },
+      {
+        "objectId": "studentChair8",
+        "objectType": "chair",
+        "assetName": "student_chair.fbx",
+        "position": { "x": 2, "y": 0, "z": 7 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 0.5, "height": 1, "depth": 0.5 }
+      },
+      {
+        "objectId": "studentDesk9",
+        "objectType": "desk",
+        "assetName": "student_desk.fbx",
+        "position": { "x": -2, "y": 0, "z": 8 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 1.5, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentDesk10",
+        "objectType": "desk",
+        "assetName": "student_desk.fbx",
+        "position": { "x": 2, "y": 0, "z": 8 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 1.5, "height": 1, "depth": 1 }
+      },
+      {
+        "objectId": "studentChair9",
+        "objectType": "chair",
+        "assetName": "student_chair.fbx",
+        "position": { "x": -2, "y": 0, "z": 9 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 0.5, "height": 1, "depth": 0.5 }
+      },
+      {
+        "objectId": "studentChair10",
+        "objectType": "chair",
+        "assetName": "student_chair.fbx",
+        "position": { "x": 2, "y": 0, "z": 9 },
+        "rotation": { "x": 0, "y": 180, "z": 0 },
+        "dimensions": { "width": 0.5, "height": 1, "depth": 0.5 }
+      }
+    ]
+  }
+}
